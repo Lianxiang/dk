@@ -22,15 +22,12 @@ struct user_data_t {
     
     int property[3];
     int skill[3];
-    struct building_t building[3]; 
 
     struct weapon_t weapon;
     struct armor_t armor;
 
     int home_x, home_y;
-    struct room_t *home;
     int local_x, local_y;
-    struct room_t *local;
 };
 
 struct user_data_node_t;

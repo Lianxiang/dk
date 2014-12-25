@@ -3,7 +3,7 @@
 
 #include "item.h"
 
-#define STR_DESC 128
+#define ROOM_DESC 128
 
 enum room_type_t {
     ROOM_WATERS,
@@ -18,12 +18,11 @@ struct room_t {
     int x;
     int y;
 
-    char desc[STR_DESC];
-
     enum room_type_t type;
-    int resource[RES_MAX];
+    char desc[ROOM_DESC];
 
     int resident;
+    struct building_t building[3]; 
 };
 
 #endif //_ROOM_H_

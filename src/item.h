@@ -1,23 +1,35 @@
 #ifndef _ITEM_H_
 #define _ITEM_H_
 
-struct item_t {
-    int id;
-    int mount;
-
-    enum item_type_t type;
-    void *data;
+enum building_type_t {
+    BUILDING_1,
+    BUILDING_2,
+    BUILDING_3,
+    BUILDING_MAX
 };
 
+#define BUILDING_DESC 128
+
+struct building_t {
+    enum building_type_t type;
+    int level;
+
+    char desc[BUILDING_DESC];
+};
+
+#define WEAPON_DESC 128
+
 struct weapon_t {
-    enum weapon_type_t type;
+    char desc[WEAPON_DESC];
     int dam;
     int weight;
     int durability;
 };
 
+#define ARMOR_DESC 128
+
 struct armor_t {
-    enum armor_type_t type;
+    char desc[ARMOR_DESC];
     int def;
     int weight;
     int durability;
