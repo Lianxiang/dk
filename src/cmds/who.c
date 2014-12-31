@@ -31,6 +31,7 @@ int do_who(struct user_t *user, char const *arg)
     msg_nl(msg);
     sprintf(info, "%d users linked in.\n", cnt);
     msg_add(msg, info, strlen(info));
+    msg_nl(msg);
     
     msg_user(user, msg->buf, msg->len);
 
