@@ -5,6 +5,7 @@
 #include <event2/bufferevent.h>
 #include "item.h"
 #include "room.h"
+#include "skills.h"
 
 #define MAX_NAME 15 
 
@@ -21,7 +22,11 @@ struct user_data_t {
     int equivalent_consume;
     
     int property[3];
-    int skill[3];
+    int skill[SKILL_MAX];
+    int attr_mastery[SKILL_ATTR_MAX];
+
+    int style_cnt;
+    struct skill_style_t style[MAX_STYLE];
 
     struct weapon_t weapon;
     struct armor_t armor;
