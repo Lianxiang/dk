@@ -9,14 +9,18 @@ enum skill_t {
     SKILL_EXT,
     SKILL_INN,
     SKILL_BAT,
-    SKILL_UNARMED,
-    SKILL_BLADE,
-    SKILL_SWORD,
-    SKILL_SPEAR,
-    SKILL_STICK,
-    SKILL_OTHER,
     SKILL_MAX
-}
+};
+
+enun skill_type_t {
+    SKILL_TYPE_UNARMED,
+    SKILL_TYPE_BLADE,
+    SKILL_TYPE_SWORD,
+    SKILL_TYPE_SPEAR,
+    SKILL_TYPE_STICK,
+    SKILL_TYPE_OTHER,
+    SKILL_TYPE_MAX
+};
 
 enum skill_attr_t {
     SKILL_ATTR_NONE,
@@ -30,7 +34,7 @@ enum skill_attr_t {
 
 struct skill_style_t {
     char name[MAX_STYLE_NAME+1];
-    enum skill_t skill;
+    enum skill_type_t skill;
     
     int att;
     enum skill_attr_t att_attr;
@@ -41,5 +45,8 @@ struct skill_style_t {
     
     int mastery;
 };
+
+int skill_get_type_reinforce(enum skill_type_t ap, enum skill_type_t dp);
+int skill_get_attr_reinforce(enum skill_attr_t ap, enum skill_arrt_t dp);
 
 #endif //_SKILL_H_

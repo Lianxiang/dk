@@ -8,6 +8,7 @@
 #include "skills.h"
 
 #define MAX_NAME 15 
+#define PROPERTY_MAX SKILL_MAX
 
 //data
 struct user_data_t {
@@ -21,11 +22,13 @@ struct user_data_t {
     int equivalent;
     int equivalent_consume;
     
-    int property[3];
+    int property[PROPERTY_MAX];
     int skill[SKILL_MAX];
+    int type_mastery[SKILL_TYPE_MAX];
     int attr_mastery[SKILL_ATTR_MAX];
 
     int style_cnt;
+    int style_enable;
     struct skill_style_t style[MAX_STYLE];
 
     struct weapon_t weapon;
