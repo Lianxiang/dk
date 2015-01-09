@@ -6,16 +6,16 @@
 //SKILL_TYPE_SPEAR,
 //SKILL_TYPE_STICK,
 //SKILL_TYPE_OTHER,
-// blade/sword -> stick -> spear -> ...
-// unarmed/other none reinforce
+// blade/sword -> stick -> spear -> ... +-5
+// unarmed -> other -> blade/sword/spear/stick -> ... +-3
 int const skill_type_reinforce[SKILL_TYPE_MAX][SKILL_TYPE_MAX] = {
     //un  bl  sw  sp  st  ot
-    { 0,  0,  0,  0,  0,  0}, //unarmed
-    { 0,  0,  0, -1,  1,  0}, //blade
-    { 0,  0,  0, -1,  1,  0}, //sword
-    { 0,  1,  1,  0, -1,  0}, //spear
-    { 0, -1, -1,  1,  0,  0}, //stick
-    { 0,  0,  0,  0,  0,  0}  //other
+    { 0, -3, -3, -3, -3,  3}, //unarmed
+    { 3,  0,  0, -5,  5, -3}, //blade
+    { 3,  0,  0, -5,  5, -3}, //sword
+    { 3,  5,  5,  0, -5, -3}, //spear
+    { 3, -5, -5,  5,  0, -3}, //stick
+    {-3,  3,  3,  3,  3,  0}  //other
 };
 
 //SKILL_ATTR_NONE,
@@ -24,17 +24,19 @@ int const skill_type_reinforce[SKILL_TYPE_MAX][SKILL_TYPE_MAX] = {
 //SKILL_ATTR_TU,
 //SKILL_ATTR_SHUI,
 //SKILL_ATTR_HUO,
-// "none" none reinforce
+//SKILL_ATTR_ALL,
+// all -> jin/mu/tu/shui/huo -> none -> ... +-3 
 // jin -> mu -> tu -> shui -> huo -> ... ke, +-5
 // jin -> shui -> mu -> huo -> tu -> ... sheng, +-1
 int const skill_attr_reinforce[SKILL_ATTR_MAX][SKILL_ATTR_MAX] = {
-    //   jin mu  tu  sh  huo
-    {0,  0,  0,  0,  0,  0}, //none
-    {0,  0,  5, -1,  1, -5}, //jin
-    {0, -5,  0,  5, -1,  1}, //mu
-    {0,  1, -5,  0,  5, -1}, //tu
-    {0, -1,  1, -5,  0,  5}, //shui
-    {0,  5, -1,  1, -5,  0}  //huo
+    //non jin mu  tu  sh  huo all
+    { 0,  0,  0,  0,  0,  0,  3}, //none
+    { 3,  0,  5, -1,  1, -5, -3}, //jin
+    { 3, -5,  0,  5, -1,  1, -3}, //mu
+    { 3,  1, -5,  0,  5, -1, -3}, //tu
+    { 3, -1,  1, -5,  0,  5, -3}, //shui
+    { 3,  5, -1,  1, -5,  0, -3}, //huo
+    {-3,  3,  3,  3,  3,  3,  0}  //all
 };
 
 int skill_get_type_reinforce(enum skill_type_t ap, enum skill_type_t dp)

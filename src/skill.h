@@ -29,6 +29,7 @@ enum skill_attr_t {
     SKILL_ATTR_TU,
     SKILL_ATTR_SHUI,
     SKILL_ATTR_HUO,
+    SKILL_ATTR_ALL,
     SKILL_ATTR_MAX
 };
 
